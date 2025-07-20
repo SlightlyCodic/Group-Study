@@ -42,4 +42,13 @@ app.get("/api", (c) => {
   });
 });
 
+app.get("/health", (c) => {
+  return c.json({
+    status: "healthy",
+    message: "Healthcheck passed",
+    timestamp: new Date().toISOString(),
+    port: process.env.PORT || 3000
+  });
+});
+
 export default app;
