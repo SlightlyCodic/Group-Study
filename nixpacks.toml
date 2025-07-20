@@ -2,8 +2,8 @@ nixPkgs = ["nodejs_20", "python3", "gcc", "gnumake"]
 
 [phases.install]
 cmds = [
-  "ln -s $(which python3) /usr/bin/python || true",
-  "npm install --legacy-peer-deps"
+  "ln -sf /usr/bin/python3 /usr/bin/python || true",
+  "PYTHON=/usr/bin/python3 npm install --legacy-peer-deps"
 ]
 
 [phases.build]
