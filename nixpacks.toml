@@ -1,7 +1,10 @@
 nixPkgs = ["nodejs_18", "python3", "gcc", "gnumake"]
 
 [phases.install]
-cmds = ["npm install --legacy-peer-deps"]
+cmds = [
+  "ln -s $(which python3) /usr/bin/python || true",
+  "npm install --legacy-peer-deps"
+]
 
 [phases.build]
 cmds = ["echo 'No build step needed'"]
