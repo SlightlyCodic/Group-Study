@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { publicProcedure } from "../../../create-context.js";
+import { publicProcedure } from "../../create-context.js";
 import { userDb } from "../../../db/supabase.js";
 
 export default publicProcedure
