@@ -194,11 +194,11 @@ export const [AppStateProvider, useAppState] = createContextHook(() => {
       
       // Create notifications for group members
       const groups = groupsQuery.data || [];
-      const userGroups = groups.filter(g => g.members.some(m => m.id === user.id));
+      const userGroups = groups.filter((g: any) => g.members.some((m: any) => m.id === user.id));
       const notifications: any[] = [];
       
-      userGroups.forEach(group => {
-        group.members.forEach(member => {
+      userGroups.forEach((group: any) => {
+        group.members.forEach((member: any) => {
           if (member.id !== user.id) {
             notifications.push({
               id: generateUniqueId(),
@@ -245,11 +245,11 @@ export const [AppStateProvider, useAppState] = createContextHook(() => {
   // Mark all notifications as read
   const markAllNotificationsAsRead = async () => {
     const notifications = notificationsQuery.data || [];
-    const unreadNotifications = notifications.filter(n => !n.read);
+    const unreadNotifications = notifications.filter((n: any) => !n.read);
     
     try {
       await Promise.all(
-        unreadNotifications.map(notification =>
+        unreadNotifications.map((notification: any) =>
           trpcClient.notifications.markRead.mutate({ notificationId: notification.id })
         )
       );
@@ -267,7 +267,7 @@ export const [AppStateProvider, useAppState] = createContextHook(() => {
   // Get unread notifications count
   const getUnreadNotificationsCount = () => {
     const notifications = notificationsQuery.data || [];
-    return notifications.filter(n => !n.read).length;
+    return notifications.filter((n: any) => !n.read).length;
   };
 
   return {

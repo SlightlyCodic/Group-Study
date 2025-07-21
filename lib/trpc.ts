@@ -1,7 +1,7 @@
 import { createTRPCReact } from "@trpc/react-query";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import superjson from "superjson";
-import type { AppRouter } from "@/backend/trpc/app-router";
+import type { AppRouter } from "@/backend/trpc/routes/app-router.d";
 
 export const trpc = createTRPCReact<AppRouter>();
 
