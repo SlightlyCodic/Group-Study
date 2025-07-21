@@ -31,7 +31,7 @@ export default function NotificationsTabScreen() {
     markAllNotificationsAsRead();
   };
 
-  const hasUnreadNotifications = notifications.some(n => !n.read);
+  const hasUnreadNotifications = notifications.some((n: any) => !n.read);
 
   return (
     <View style={styles.container}>

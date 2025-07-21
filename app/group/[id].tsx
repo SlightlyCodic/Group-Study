@@ -14,7 +14,7 @@ export default function GroupDetailsScreen() {
   const router = useRouter();
   const [isLeaving, setIsLeaving] = useState(false);
 
-  const group = groups.find(g => g.id === id);
+  const group = groups.find((g: any) => g.id === id);
 
   if (!group || !user) {
     return (
@@ -107,7 +107,7 @@ export default function GroupDetailsScreen() {
             <View style={styles.membersContainer}>
               <Text style={styles.membersTitle}>Members</Text>
               <View style={styles.membersList}>
-                {group.members.map(member => (
+                {group.members.map((member: any) => (
                   <View key={member.id} style={styles.memberItem}>
                     <Avatar name={member.name} userId={member.id} size={32} />
                     <Text style={styles.memberName}>
@@ -131,7 +131,7 @@ export default function GroupDetailsScreen() {
             textStyle={styles.leaveButtonText}
             disabled={isLeaving}
             loading={isLeaving}
-            icon={<LogOut size={18} color={colors.error} style={{ marginRight: 8 }} />}
+
           />
         }
       />
